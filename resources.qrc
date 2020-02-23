@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/bug-solid.svg</file>
+        <file>icons/check-square-solid.svg</file>
+        <file>icons/minus-square-solid.svg</file>
+        <file>icons/sync-alt-solid.svg</file>
+        <file>icons/external-link-square-alt-solid.svg</file>
+    </qresource>
+</RCC>

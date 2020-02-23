@@ -1,0 +1,36 @@
+
+//#include <QProcess>  //mainwindow.h
+//#include <QFuture>
+//#include <QString>
+//#include <QtWidgets>  //mainwindow.cpp
+//#include <QProcess>
+//#include <functional>
+//#include <QFuture>
+//#include <QtConcurrent/QtConcurrent>
+//#include <QThread>
+//#include <QtGlobal>
+//#include <QDebug>
+//#include <QString>
+//#include <QGroupBox>
+
+//    QApplication::setLibraryPaths(static_cast<QStringList>("..\\libs"));
+
+connect(process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this,
+        [&process, &out_err]{
+            out_err = process->readAll();
+            delete process;
+        }
+        );
+
+//    QString out = process->readAllStandardOutput();
+//    QString err = process->readAllStandardError();
+
+QFuture<void> result = QtConcurrent::run(this, &MainWindow::openGUI, QString("notepad"));
+
+
+
+//    connect(this, &QWidget::show, this, &MainWindow::startAdmin);
+
+//    openCMD("sfc")
+//    QFuture<QString> result2 = QtConcurrent::run(this, &MainWindow::openCMD, QString("systeminfo | findstr /B /C:\"OS Name\" /C:\"OS Version\" /C:\"System Type\" /C:\"Original Install Date\" /C:\"System Boot Time\" /C:\"Processor(s)\" /C:\"Total Physical Memory\" /C:\"Hotfix(s)\""));
+QString out = "Build: " + result1 + result2/* + result2.result()*/;
